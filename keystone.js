@@ -6,6 +6,7 @@ require('dotenv').config();
 var keystone = require('keystone');
 var cons = require('consolidate');
 var nunjucks = require('nunjucks');
+var MongoClient = require('mongodb').MongoClient;
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -26,6 +27,7 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
+
 });
 
 // Load your project's Models
@@ -54,5 +56,11 @@ keystone.set('nav', {
 // Start Keystone to connect to your database and initialise the web server
 
 
+// var uri = "mongodb+srv://santiagoshawn@gmail.com:Santias101$@cluster0-hitmitsu-t0qnc.mongodb.net/test?retryWrites=true";
+// MongoClient.connect(uri, function(err, db) {
+//    db.close();
+// });
+
+mongoose.connect('mongodb+srv://santiagoshawn@gmail.com:Santias101$@cluster0-hitmitsu-t0qnc.mongodb.net/test?retryWrites=true')
 
 keystone.start();
